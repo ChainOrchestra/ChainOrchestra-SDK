@@ -1,0 +1,59 @@
+/* 
+ * ChainOrchestra.css
+ */
+
+body {
+	background-color: ffffff;
+	color: 0064d0;
+	font-family: "Montserrat", sans;
+}
+
+h1 {
+	background-color: ecf1f6;
+	color: 007de1;
+}
+
+h2, h3, .section {
+	background-color: ecf1f6;
+	color: 007de1;
+}
+
+a:link { 
+	color: 01b8fc; 
+	text-decoration: underline;
+}
+
+a:visited { 
+	color: bfd1e1; 
+	text-decoration: underline;
+}
+
+a:hover { 
+	color: 009ef1; 
+	text-decoration: underline;
+}
+
+a:active { 
+	color: dae5ee; 
+	text-decoration: underline;
+}
+
+input, select, textarea, .control {
+	color: ffffff;
+	background-color: 0064d0;
+    font-family: "Fixed", monospace, bold;
+	font-size: 1em;
+	border: 0;
+	border-radius: 8px;
+	margin: 2px;
+}
+
+.code {
+	font-family: "Fixed", monospace;
+	background-color: bfd1e1;
+	color: 0064d0;
+}
+
+.serif {
+    font-family: "Times New Roman", Times, serif;
+}

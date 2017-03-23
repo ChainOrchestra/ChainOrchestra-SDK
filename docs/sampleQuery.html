@@ -1,0 +1,102 @@
+<html>
+<head>
+  <title>ChainOrchestra Query example</title>
+  <link rel="stylesheet" type="text/css" href="css/ChainOrchestra.css">
+  <script src="js/chainorchestra.js"></script>
+</head>
+
+<body>
+
+<center>
+	<h1>Blockchain query example</h1>
+</center>
+
+
+<table style="width:100%">
+
+<tr>
+
+<td style="width:80%">
+<textarea style="width:100%" id='codeArea' rows='24'>
+var ip = "51.15.43.252";
+var port = "7050";
+
+var user = "DemoUser";
+var chaincodeID = "f519d9cc955c612fb573332166e08fa8ea3682facbd234545d7dcdfe1554e12cd11673fd90bf4716467ad6ed2e90a2f8a6da7139b24eb19f59be1f14f8fc4d67";
+
+var query = new Query(ip, port);
+query.setSecureContext(user);
+query.setChaincodeID("name", chaincodeID);
+
+function success(result) {
+  log("Guest " + this.guestName + " status:");
+  log(JSON.stringify(result));
+}
+
+function failure(result) {
+  log("Failed retrieving guest " + this.guestName + " status.");
+  log(JSON.stringify(result));
+}
+
+var guest = "Alan Turing";
+
+var context = query.query("query", [guest], success, failure);
+context.guestName = guest;
+</textarea>
+</td>
+
+<td style="width:20%">
+<input style="width:100%" type="button" value="Run code" onclick="runCode()">
+<input style="width:100%" type="button" value="Clear logs" onclick="clearLogs()">
+</td>
+
+</tr>
+
+</table>
+
+
+<center>
+	<h2>Session logs</h2>
+</center>
+
+
+<pre style="width:100%" id="logArea" class="code">
+</pre>
+
+<script>
+
+function log(text) {
+	document.getElementById("logArea").innerHTML += text + "\n";
+}
+	
+function clearLogs() {
+	document.getElementById("logArea").innerHTML = "";
+}
+
+function runCode() {
+	try {
+		eval(document.getElementById("codeArea").value);
+	}
+	catch(e) {
+		log("Error: source code eval failure");
+	}
+}
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
