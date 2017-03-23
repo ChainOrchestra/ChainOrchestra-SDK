@@ -9,6 +9,9 @@ The software in this repository is distributed in open-source under the
 
 ## ChainOrchestra simplified Hyperledger REST client API
 
+The [chainorchestra.js API](https://chainorchestra.github.io/ChainOrchestra-SDK/index.html) defines 
+a basic set of objects to handle Hyperledger peer interactions over the REST API.
+
 The following live examples from the [registration](http://chainorchestra.net/#/4) application on 
 [chainorchestra.net](http://chainorchestra.net) use the chainorchestra.js objects to:
 
