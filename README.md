@@ -1,4 +1,4 @@
-# ChainOrchestra-SDK
+# [ChainOrchestra-SDK](https://github.com/ChainOrchestra/ChainOrchestra-SDK)
 
 This SDK provides tools and APIs to access the ChainOrchestra blockchains based on 
 [Hyperledger v0.6](http://hyperledger-fabric.readthedocs.io/en/v0.6/API/CoreAPI.html)
@@ -7,7 +7,7 @@ The software in this repository is distributed in open-source under the
 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
 
-## ChainOrchestra simplified Hyperledger REST client API
+## ChainOrchestra simplified Hyperledger REST client [API](https://chainorchestra.github.io/ChainOrchestra-SDK/index.html)
 
 The [chainorchestra.js API](https://chainorchestra.github.io/ChainOrchestra-SDK/index.html) defines 
 a basic set of objects to handle Hyperledger peer interactions over the REST API.
