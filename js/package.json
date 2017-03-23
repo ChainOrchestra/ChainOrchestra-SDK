@@ -1,0 +1,23 @@
+{
+	"name"         : "chainorchestra",
+	"version"      : "0.0.3",
+	"description"  : "ChainOrchestra simplified Hyperledger REST client API.",
+	"homepage"     : "http://chainorchestra.com",
+	"license"      : "Apache 2.0",
+	"repository"   : {
+		"type": "git",
+		"url" : "https://github.com/ChainOrchestra/ChainOrchestra-SDK.git"
+	},
+	"maintainers": [
+			"Luc Yriarte <luc.yriarte@chainorchestra.com>",
+			"Jeremie Francois <jeremie.francois@chainorchestra.com>",
+			"Zinedine Hasni <zinedine.hasni@chainorchestra.com>"
+	],
+	"dependencies": {
+		"xmlhttprequest": ">= 1.8.0"
+	},
+	"engines": {
+		"node": ">=0.10"
+	},
+	"main": "chainorchestra.js"
+}
