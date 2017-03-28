@@ -1,4 +1,5 @@
-# ChainOrchestra simplified Hyperledger REST client API.
+# [ChainOrchestra-SDK](https://github.com/ChainOrchestra/ChainOrchestra-SDK)
+ simplified Hyperledger REST client API for Node.js
 
 ## Node.js global install
 

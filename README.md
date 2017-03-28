@@ -7,14 +7,14 @@ The software in this repository is distributed in open-source under the
 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
 
-## ChainOrchestra simplified Hyperledger REST client [API](https://chainorchestra.github.io/ChainOrchestra-SDK/index.html)
+## ChainOrchestra simplified Hyperledger REST client API
 
-### API documentation
+### [API documentation](https://chainorchestra.github.io/ChainOrchestra-SDK/index.html)
 
 The [chainorchestra.js API](https://chainorchestra.github.io/ChainOrchestra-SDK/index.html) defines 
 a basic set of objects to handle Hyperledger peer interactions over the REST API.
 
-### Web app
+### Using the ChainOrchestra client API in a Web app
 
 Just include the [chainorchestra.js](https://chainorchestra.github.io/ChainOrchestra-SDK/chainorchestra.js.html) lib in a web page
 to connect to Hyperledger using the REST API.
@@ -24,17 +24,17 @@ to connect to Hyperledger using the REST API.
 ```
 
 The following live examples from the [registration](http://chainorchestra.net/#/4) application on 
-[chainorchestra.net](http://chainorchestra.net) use the chainorchestra.js objects to:
+[chainorchestra.net](http://chainorchestra.net) use the chainorchestra.js objects.
 
-  * [Connect](http://chainorchestra.net/ChainOrchestra-SDK/sampleConnection.html) a user to the blockchain.
-  * [Query](http://chainorchestra.net/ChainOrchestra-SDK/sampleQuery.html) the blockchain.
-  * Execute a [transaction](http://chainorchestra.net/ChainOrchestra-SDK/sampleTransaction.html) on the blockchain.
+  * [Connection live example](http://chainorchestra.net/ChainOrchestra-SDK/sampleConnection.html)
+  * [Query live example](http://chainorchestra.net/ChainOrchestra-SDK/sampleQuery.html)
+  * [Transaction live example](http://chainorchestra.net/ChainOrchestra-SDK/sampleTransaction.html)
 
-### Node.js
+### Using the ChainOrchestra client API with Node.js
 
 Install the [chainorchestra.js lib as a Node.js package](lib/js/) to run scripts and use it as a command line app.
 
-## Blockchain demos
+## ChainOrchestra blockchain demos
 
   * Live demo blockchain on [chainorchestra.net](http://chainorchestra.net)
   * Guest [registration](http://chainorchestra.net/#/4) application
