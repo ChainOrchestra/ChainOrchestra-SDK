@@ -1,10 +1,10 @@
 # [ChainOrchestra-SDK](https://github.com/ChainOrchestra/ChainOrchestra-SDK) 
- Chaincode permissions module
 
+## Chaincode permissions module
 
-## Permissions module general design
+### Permissions module general design
 
-### Intended use
+#### Intended use
 
 The rationale for this library is to have a very lightweight module, consistent accross all chaincode applications,
 that doesn't re-implement the cryptographic services already in place with Hyperledger. It just checks rights and
@@ -16,7 +16,7 @@ The perms.go library must be included by all chaincode applications that need to
 The module defines a set of roles that are granted to blockchain users, according to which the chaincode will let the user
 perform certain actions.
 
-### Example implementation
+#### Example implementation
 
 A banking application defines 3 positions: Bank Clerk, Cashier and Accountant. 
 The Accountant is granted both BankClerk and Cashier rights.
@@ -35,7 +35,7 @@ const PowerUser			uint64 = 0x0000000000ff0000
 ```
 
 
-## perms.go library usage
+### [perms.go](perms.go) library usage
 
 
   * Importing the library from user chaincode.

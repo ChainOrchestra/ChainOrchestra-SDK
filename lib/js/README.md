@@ -1,12 +1,13 @@
 # [ChainOrchestra-SDK](https://github.com/ChainOrchestra/ChainOrchestra-SDK)
- simplified Hyperledger REST client API for Node.js
 
-## Node.js global install
+## ChainOrchestra simplified Hyperledger REST client API for Node.js
+
+### Node.js global install
 
 	cd lib/js
 	sudo npm install -g
 
-## chainorchestra.js library usage
+### [chainorchestra.js](https://chainorchestra.github.io/ChainOrchestra-SDK/chainorchestra.js.html) library usage
 
 Import the [API object classes](https://chainorchestra.github.io/ChainOrchestra-SDK/index.html) as needed.
 

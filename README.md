@@ -30,9 +30,10 @@ The following live examples from the [registration](http://chainorchestra.net/#/
   * [Query live example](http://chainorchestra.net/ChainOrchestra-SDK/sampleQuery.html)
   * [Transaction live example](http://chainorchestra.net/ChainOrchestra-SDK/sampleTransaction.html)
 
-### Using the ChainOrchestra client API with Node.js
+### Using the [ChainOrchestra client API with Node.js](lib/js/)
 
-Install the [chainorchestra.js lib as a Node.js package](lib/js/) to run scripts and use it as a command line app.
+Install the [chainorchestra.js](https://chainorchestra.github.io/ChainOrchestra-SDK/chainorchestra.js.html) lib 
+as a Node.js package to run scripts and use it as a command line app.
 
 
 ## ChainOrchestra chaincode and server side APIs
