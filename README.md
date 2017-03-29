@@ -47,12 +47,19 @@ The [perms.go](lib/chaincode/perms/perms.go) permissions module is a library tha
 manage consistent, prioritized permissions across different applications.
 
 
-## ChainOrchestra blockchain demos
+## ChainOrchestra blockchain demos and live examples
 
   * Live demo blockchain on [chainorchestra.net](http://chainorchestra.net)
-  * Guest [registration](http://chainorchestra.net/#/4) application
-  * Value [exchange](http://chainorchestra.net/#/5) application
+  
+### Guest [registration](examples/registration) and gate access application
 
+  * Guest [registration](http://chainorchestra.net/#/4) application live demo on [chainorchestra.net](http://chainorchestra.net)
+  * [registration.go](examples/registration/chaincode/registration.go) chaincode example
+
+### Value [exchange](examples/registration) and digital currency application
+
+  * Value [exchange](http://chainorchestra.net/#/5) application live demo on [chainorchestra.net](http://chainorchestra.net)
+  * [exchange.go](examples/exchange/chaincode/exchange.go) chaincode example
 
 ## About ChainOrchestra
 
