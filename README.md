@@ -34,6 +34,18 @@ The following live examples from the [registration](http://chainorchestra.net/#/
 
 Install the [chainorchestra.js lib as a Node.js package](lib/js/) to run scripts and use it as a command line app.
 
+
+## ChainOrchestra chaincode and server side APIs
+
+Chaincode APIs provide services shared by all user chaincode applications deployed on a ChainOrchestra-managed, mutualized blockchain.
+It can be libraries to include or interfaces to implement in order to access a specific service.
+
+### Chaincode [permissions module](lib/chaincode/perms)
+
+The [perms.go](lib/chaincode/perms/perms.go) permissions module is a library that chaincode can include in order to 
+manage consistent, prioritized permissions across different applications.
+
+
 ## ChainOrchestra blockchain demos
 
   * Live demo blockchain on [chainorchestra.net](http://chainorchestra.net)
