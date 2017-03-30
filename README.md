@@ -56,7 +56,7 @@ manage consistent, prioritized permissions across different applications.
   * Guest [registration](http://chainorchestra.net/#/4) application live demo on [chainorchestra.net](http://chainorchestra.net)
   * [registration.go](examples/registration/chaincode/registration.go) chaincode example
 
-### Value [exchange](examples/registration) and digital currency application
+### Value [exchange](examples/exchange) and digital currency application
 
   * Value [exchange](http://chainorchestra.net/#/5) application live demo on [chainorchestra.net](http://chainorchestra.net)
   * [exchange.go](examples/exchange/chaincode/exchange.go) chaincode example
