@@ -4,7 +4,50 @@
 
 ### General design
 
+This live event / hospitality sample application registers guests, online or at a desk, then let them checkin at a gate.
+The guest needs to checkout before unregistering.
+
+In the blockchain DB, the user name is the key, the value of wich is either:
+
+  * ```registered``` if the user is present in the DB but has not physically passed the gate
+  * ```checked in``` if the user entered the event
+
 The guest [registration](http://chainorchestra.net/#/4) live demo page is on [chainorchestra.net](http://chainorchestra.net).
+
+#### Desk operations
+
+Blockchain users with [DeskClerk permissions](../../lib/chaincode/perms) manage the register / unregister operations.
+
+```
+---- ---- ---- ---- ---- ----+---- ---- ---- ----+---- ---- ---- ---- ---- ---- 
+     Initial state           |      Operation    |         Next state
+---- ---- ---- ---- ---- ----+---- ---- ---- ----+---- ---- ---- ---- ---- ---- 
+                             |                   |
+     <undefined>             |      register     |         registered
+                             |                   |
+     registered              |     unregister    |         <undefined> 
+                             |                   |
+---- ---- ---- ---- ---- ----+---- ---- ---- ----+---- ---- ---- ---- ---- ---- 
+ 
+```
+
+#### Gate operations
+
+Blockchain users with [SecurityGuard permissions](../../lib/chaincode/perms) manage the checkin / checkout operations.
+
+```
+---- ---- ---- ---- ---- ----+---- ---- ---- ----+---- ---- ---- ---- ---- ---- 
+     Initial state           |      Operation    |         Next state
+---- ---- ---- ---- ---- ----+---- ---- ---- ----+---- ---- ---- ---- ---- ---- 
+                             |                   |
+     registered              |      checkin      |         checked in 
+                             |                   |
+     checked in              |      checkout     |         registered
+                             |                   |
+---- ---- ---- ---- ---- ----+---- ---- ---- ----+---- ---- ---- ---- ---- ---- 
+ 
+```
+
 
 ### Sample session
 
