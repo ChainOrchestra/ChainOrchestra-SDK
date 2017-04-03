@@ -1,0 +1,47 @@
+<script type="text/javascript">
+	RED.nodes.registerType('query',{
+		category: 'blockchain',
+		color: '#009ef1',
+		defaults: {
+			name: {value:"query"},
+			ip: {value: "127.0.0.1"},
+			port: {value: "7050"},
+			user: {value: "DemoUser"},
+			chaincodeid: {value: ""}
+		},
+		inputs:1,
+		outputs:2,
+		icon: "chainorchestra.png",
+		label: function() {
+			return this.name||"query";
+		}
+	});
+</script>
+
+<script type="text/x-red" data-template-name="query">
+	<div class="form-row">
+		<input type="text" id="node-input-name" placeholder="query">
+		<label for="node-input-name"><i class="icon-tag"></i> Name</label>
+	</div>
+	<div class="form-row">
+		<input type="text" id="node-input-ip" placeholder="127.0.0.1">
+		<label for="node-input-ip"><i class="icon-tag"></i> Ip Address</label>
+	</div>
+	<div class="form-row">
+		<input type="text" id="node-input-port" placeholder="7050">
+		<label for="node-input-port"><i class="icon-tag"></i> Port</label>
+	</div>
+	<div class="form-row">
+		<input type="text" id="node-input-user" placeholder="DemoUser">
+		<label for="node-input-user"><i class="icon-tag"></i> User</label>
+	</div>
+	<div class="form-row">
+		<input type="text" id="node-input-chaincodeid">
+		<label for="node-input-chaincodeid"><i class="icon-tag"></i> chaincodeID</label>
+	</div>
+</script>
+
+<script type="text/x-red" data-help-name="query">
+	<p>Runs a query on a ChainOrchestra blockchain.</p>
+	<p>The input payload must be formatted as a Hyperledger jsonrpc params object.</p>
+</script>

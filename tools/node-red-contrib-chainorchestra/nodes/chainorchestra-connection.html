@@ -1,0 +1,53 @@
+<script type="text/javascript">
+	RED.nodes.registerType('connection',{
+		category: 'blockchain',
+		color: '#009ef1',
+		defaults: {
+			name: {value: "connection"},
+			ip: {value: "127.0.0.1"},
+			port: {value: "7050"},
+			user: {value: "DemoUser"},
+			password: {value: "iAmAdeM0uS3R"}
+		},
+		inputs:1,
+		outputs:2,
+		icon: "chainorchestra.png",
+		label: function() {
+			return this.name||"connection";
+		}
+	});
+</script>
+
+<script type="text/x-red" data-template-name="connection">
+	<div class="form-row">
+		<input type="text" id="node-input-name" placeholder="connection">
+		<label for="node-input-name"><i class="icon-tag"></i> Name</label>
+	</div>
+	<div class="form-row">
+		<input type="text" id="node-input-ip" placeholder="127.0.0.1">
+		<label for="node-input-ip"><i class="icon-tag"></i> Ip Address</label>
+	</div>
+	<div class="form-row">
+		<input type="text" id="node-input-port" placeholder="7050">
+		<label for="node-input-port"><i class="icon-tag"></i> Port</label>
+	</div>
+	<div class="form-row">
+		<input type="text" id="node-input-user" placeholder="DemoUser">
+		<label for="node-input-user"><i class="icon-tag"></i> User</label>
+	</div>
+	<div class="form-row">
+		<input type="password" id="node-input-password" placeholder="iAmAdeM0uS3R">
+		<label for="node-input-password"><i class="icon-tag"></i> Password</label>
+	</div>
+</script>
+
+<script type="text/x-red" data-help-name="connection">
+	<p>Makes a login connection to a ChainOrchestra blockchain.</p>
+	<p>The input payload to override the default configuration must be a Hyperledger /registrar message object</p>
+<pre>
+{
+	enrollId: "user",
+	enrollSecret: "password"
+}
+</pre>
+</script>
