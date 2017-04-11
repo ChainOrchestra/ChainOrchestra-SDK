@@ -1,0 +1,146 @@
+[
+  {
+    "crontab": "", 
+    "id": "63ab0001.a1bbf", 
+    "name": "trigger", 
+    "once": false, 
+    "payload": "", 
+    "payloadType": "date", 
+    "repeat": "", 
+    "topic": "", 
+    "type": "inject", 
+    "wires": [
+      [
+        "d76959e7.6f41d"
+      ]
+    ], 
+    "x": 90, 
+    "y": 40, 
+    "z": "3e1d1fa8.1e086"
+  }, 
+  {
+    "id": "d76959e7.6f41d", 
+    "ip": "51.15.43.252", 
+    "name": "connection", 
+    "password": "iAmAdeM0uS3R", 
+    "port": "7050", 
+    "type": "connection", 
+    "user": "DemoUser", 
+    "wires": [
+      [
+        "1dc65564.9d9c3b"
+      ], 
+      [
+        "8b65a9f6.393308"
+      ]
+    ], 
+    "x": 190, 
+    "y": 180, 
+    "z": "3e1d1fa8.1e086"
+  }, 
+  {
+    "chaincodeid": "f519d9cc955c612fb573332166e08fa8ea3682facbd234545d7dcdfe1554e12cd11673fd90bf4716467ad6ed2e90a2f8a6da7139b24eb19f59be1f14f8fc4d67", 
+    "id": "72d88c43.be7454", 
+    "ip": "51.15.43.252", 
+    "name": "query", 
+    "port": "7050", 
+    "type": "query", 
+    "user": "DemoUser", 
+    "wires": [
+      [
+        "391d8b4c.a25dc4"
+      ], 
+      [
+        "8b65a9f6.393308"
+      ]
+    ], 
+    "x": 250, 
+    "y": 40, 
+    "z": "3e1d1fa8.1e086"
+  }, 
+  {
+    "active": true, 
+    "complete": "false", 
+    "console": "false", 
+    "id": "8b65a9f6.393308", 
+    "name": "", 
+    "type": "debug", 
+    "wires": [], 
+    "x": 590, 
+    "y": 200, 
+    "z": "3e1d1fa8.1e086"
+  }, 
+  {
+    "func": "list = msg.payload.result.message.split(\"\\n\");\nlist.pop();\nmsg.payload = list;\nreturn msg;", 
+    "id": "391d8b4c.a25dc4", 
+    "name": "guest list", 
+    "noerr": 0, 
+    "outputs": 1, 
+    "type": "function", 
+    "wires": [
+      [
+        "b3082dd0.1beb38"
+      ]
+    ], 
+    "x": 400, 
+    "y": 40, 
+    "z": "3e1d1fa8.1e086"
+  }, 
+  {
+    "func": "list = msg.payload;\nif (list.length > 0) {\n    last = list.pop();\n    return [{\"payload\":list},{\"payload\":last}];\n}\n\nreturn [null,null];", 
+    "id": "b3082dd0.1beb38", 
+    "name": "slice", 
+    "noerr": 0, 
+    "outputs": "2", 
+    "type": "function", 
+    "wires": [
+      [
+        "8ff97647.ff0ae"
+      ], 
+      [
+        "8b65a9f6.393308"
+      ]
+    ], 
+    "x": 590, 
+    "y": 120, 
+    "z": "3e1d1fa8.1e086"
+  }, 
+  {
+    "drop": false, 
+    "id": "8ff97647.ff0ae", 
+    "name": "", 
+    "pauseType": "delay", 
+    "randomFirst": "1", 
+    "randomLast": "5", 
+    "randomUnits": "seconds", 
+    "rate": "1", 
+    "rateUnits": "second", 
+    "timeout": "1", 
+    "timeoutUnits": "seconds", 
+    "type": "delay", 
+    "wires": [
+      [
+        "b3082dd0.1beb38"
+      ]
+    ], 
+    "x": 600, 
+    "y": 40, 
+    "z": "3e1d1fa8.1e086"
+  }, 
+  {
+    "func": "msg.payload = {\n    \"ctorMsg\": {\n        \"function\": \"list\",\n        \"args\": []\n    }\n};\nreturn msg;\n", 
+    "id": "1dc65564.9d9c3b", 
+    "name": "ctorMsg", 
+    "noerr": 0, 
+    "outputs": 1, 
+    "type": "function", 
+    "wires": [
+      [
+        "72d88c43.be7454"
+      ]
+    ], 
+    "x": 240, 
+    "y": 120, 
+    "z": "3e1d1fa8.1e086"
+  }
+]

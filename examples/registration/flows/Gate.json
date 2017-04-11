@@ -1,0 +1,249 @@
+[
+  {
+    "func": "msg.payload = {\"status\": \"pending\"};\nreturn msg;", 
+    "id": "237c33c.bac57cc", 
+    "name": "pending", 
+    "noerr": 0, 
+    "outputs": 1, 
+    "type": "function", 
+    "wires": [
+      [
+        "37b31de8.cb0412"
+      ]
+    ], 
+    "x": 400, 
+    "y": 280, 
+    "z": "29f12ebb.3a58d2"
+  }, 
+  {
+    "id": "db8f4479.c28f88", 
+    "method": "get", 
+    "name": "gate", 
+    "swaggerDoc": "", 
+    "type": "http in", 
+    "url": "/gate", 
+    "wires": [
+      [
+        "750018b4.515208"
+      ]
+    ], 
+    "x": 70, 
+    "y": 280, 
+    "z": "29f12ebb.3a58d2"
+  }, 
+  {
+    "active": true, 
+    "complete": "payload", 
+    "console": "false", 
+    "id": "f1cc767b.6a13a8", 
+    "name": "", 
+    "type": "debug", 
+    "wires": [], 
+    "x": 650, 
+    "y": 40, 
+    "z": "29f12ebb.3a58d2"
+  }, 
+  {
+    "id": "d209351c.bca258", 
+    "name": "response", 
+    "type": "http response", 
+    "wires": [], 
+    "x": 820, 
+    "y": 180, 
+    "z": "29f12ebb.3a58d2"
+  }, 
+  {
+    "func": "global.set(\"gateCheck\",0);\nreturn msg;", 
+    "id": "1c0d0e09.6c354a", 
+    "name": "clear gateCheck", 
+    "noerr": 0, 
+    "outputs": 1, 
+    "type": "function", 
+    "wires": [
+      [
+        "f1cc767b.6a13a8", 
+        "9178bad6.f538f"
+      ]
+    ], 
+    "x": 620, 
+    "y": 200, 
+    "z": "29f12ebb.3a58d2"
+  }, 
+  {
+    "func": "if (global.get(\"gateCheck\"))\n    return null;\nglobal.set(\"gateCheck\",1);\nreturn msg;", 
+    "id": "750018b4.515208", 
+    "name": "gate check", 
+    "noerr": 0, 
+    "outputs": 1, 
+    "type": "function", 
+    "wires": [
+      [
+        "1bf1c6c8.ee05e9"
+      ]
+    ], 
+    "x": 110, 
+    "y": 200, 
+    "z": "29f12ebb.3a58d2"
+  }, 
+  {
+    "id": "5ae97c5f.31774c", 
+    "ip": "51.15.43.252", 
+    "name": "connection", 
+    "password": "iaMaS3cur1TY", 
+    "port": "7050", 
+    "type": "connection", 
+    "user": "Guard1", 
+    "wires": [
+      [
+        "f1cc767b.6a13a8"
+      ], 
+      [
+        "f1cc767b.6a13a8"
+      ]
+    ], 
+    "x": 350, 
+    "y": 40, 
+    "z": "29f12ebb.3a58d2"
+  }, 
+  {
+    "crontab": "", 
+    "id": "c3c3d555.3252f8", 
+    "name": "init", 
+    "once": true, 
+    "payload": "", 
+    "payloadType": "date", 
+    "repeat": "", 
+    "topic": "", 
+    "type": "inject", 
+    "wires": [
+      [
+        "5ae97c5f.31774c"
+      ]
+    ], 
+    "x": 90, 
+    "y": 40, 
+    "z": "29f12ebb.3a58d2"
+  }, 
+  {
+    "chaincodeid": "f519d9cc955c612fb573332166e08fa8ea3682facbd234545d7dcdfe1554e12cd11673fd90bf4716467ad6ed2e90a2f8a6da7139b24eb19f59be1f14f8fc4d67", 
+    "id": "b8fa0101.85315", 
+    "ip": "51.15.43.252", 
+    "name": "checkin / checkout", 
+    "port": "7050", 
+    "type": "transaction", 
+    "user": "DemoUser", 
+    "wires": [
+      [
+        "e2f47561.7bf788", 
+        "f1cc767b.6a13a8"
+      ], 
+      [
+        "aa614bfb.152ba"
+      ]
+    ], 
+    "x": 330, 
+    "y": 100, 
+    "z": "29f12ebb.3a58d2"
+  }, 
+  {
+    "func": "rpcParams = {\n    \"ctorMsg\": {\n        \"function\": msg.payload.action,\n        \"args\": [msg.payload.guest]\n    }\n};\nflow.get(\"params\").ctorMsg = rpcParams.ctorMsg;\nmsg.payload = rpcParams;\nreturn msg;", 
+    "id": "1bf1c6c8.ee05e9", 
+    "name": "rpc params", 
+    "noerr": 0, 
+    "outputs": 1, 
+    "type": "function", 
+    "wires": [
+      [
+        "b8fa0101.85315", 
+        "237c33c.bac57cc"
+      ]
+    ], 
+    "x": 150, 
+    "y": 140, 
+    "z": "29f12ebb.3a58d2"
+  }, 
+  {
+    "func": "msg.payload = {\"status\": \"ok\",\"transaction\": msg.payload.result.message};\nreturn msg;", 
+    "id": "e2f47561.7bf788", 
+    "name": "ok", 
+    "noerr": 0, 
+    "outputs": 1, 
+    "type": "function", 
+    "wires": [
+      [
+        "1c0d0e09.6c354a", 
+        "37b31de8.cb0412"
+      ]
+    ], 
+    "x": 390, 
+    "y": 200, 
+    "z": "29f12ebb.3a58d2"
+  }, 
+  {
+    "func": "msg.payload = {\"status\": \"error\"};\nreturn msg;", 
+    "id": "aa614bfb.152ba", 
+    "name": "error", 
+    "noerr": 0, 
+    "outputs": 1, 
+    "type": "function", 
+    "wires": [
+      [
+        "1c0d0e09.6c354a", 
+        "37b31de8.cb0412"
+      ]
+    ], 
+    "x": 390, 
+    "y": 240, 
+    "z": "29f12ebb.3a58d2"
+  }, 
+  {
+    "func": "ctorMsg = flow.get(\"params\").ctorMsg;\nmsg.payload.action = ctorMsg.function;\nmsg.payload.guest = ctorMsg.args[0];\nmsg.payload.timestamp = Date.now();\nreturn msg;", 
+    "id": "37b31de8.cb0412", 
+    "name": "status message", 
+    "noerr": 0, 
+    "outputs": 1, 
+    "type": "function", 
+    "wires": [
+      [
+        "447e0434.6c007c"
+      ]
+    ], 
+    "x": 620, 
+    "y": 240, 
+    "z": "29f12ebb.3a58d2"
+  }, 
+  {
+    "func": "ctorMsg = flow.get(\"params\").ctorMsg;\nresultPage = \n  '<center><h1 style=\"background-color:0064d0;color:ffffff;font-size:7em;width:100%\">' + \n  msg.payload.status + \n  '</h1></center>' +\n  '<pre style=\"background-color:bfd1e1;color:0064d0;font-size:5em;width:100%\">' + \n  ctorMsg.args[0] + ' ' + ctorMsg.function + ': ' + msg.payload.status + '\\n' + \n  Date().toString() + '\\n';\nif (msg.payload.transaction)\n  resultPage += 'Transaction: ' + msg.payload.transaction + '\\n';\nresultPage += '</pre>';\nmsg.payload = resultPage;\nreturn msg;", 
+    "id": "9178bad6.f538f", 
+    "name": "status page", 
+    "noerr": 0, 
+    "outputs": 1, 
+    "type": "function", 
+    "wires": [
+      [
+        "d209351c.bca258"
+      ]
+    ], 
+    "x": 770, 
+    "y": 80, 
+    "z": "29f12ebb.3a58d2"
+  }, 
+  {
+    "client": "", 
+    "id": "447e0434.6c007c", 
+    "name": "gatestatus", 
+    "server": "d0c6655a.07ccd8", 
+    "type": "websocket out", 
+    "wires": [], 
+    "x": 810, 
+    "y": 240, 
+    "z": "29f12ebb.3a58d2"
+  }, 
+  {
+    "id": "d0c6655a.07ccd8", 
+    "path": "/ws/gatestatus", 
+    "type": "websocket-listener", 
+    "wholemsg": "false", 
+    "z": "29f12ebb.3a58d2"
+  }
+]
