@@ -2,10 +2,24 @@
 
 ## ChainOrchestra simplified Hyperledger REST client API for Node.js
 
-### Node.js global install
+### Installing the chainorchestra API for Node.js
 
-	cd lib/js
-	sudo npm install -g
+You need to install [Node.js](https://nodejs.org/) / npm first.
+
+```
+sudo apt-get install -y nodejs nodejs-legacy npm
+```
+
+Then install the chainorchestra API for Node.js with npm
+
+```
+cd lib/js
+sudo npm install -g
+```
+
+Once chainorchestra API for Node.js is installed, you can also install the 
+[ChainOrchestra blockchain nodes for Node-RED](../../tools/node-red-contrib-chainorchestra)
+
 
 ### [chainorchestra.js](https://chainorchestra.github.io/ChainOrchestra-SDK/chainorchestra.js.html) library usage
 

@@ -35,6 +35,8 @@ The following live examples from the [registration](http://chainorchestra.net/#/
 Install the [chainorchestra.js](https://chainorchestra.github.io/ChainOrchestra-SDK/chainorchestra.js.html) lib 
 as a Node.js package to run scripts and use it as a command line app.
 
+Use the [ChainOrchestra blockchain nodes for Node-RED](tools/node-red-contrib-chainorchestra) to quickly build a
+blockchain access gateway with the [Node-RED](https://nodered.org/) flow box interface.
 
 ## ChainOrchestra chaincode and server side APIs
 
