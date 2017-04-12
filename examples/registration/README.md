@@ -63,3 +63,11 @@ cd examples/registration/js/
 ./deskOperation.js unregister "John Doe"
 ./guestList.js 
 ```
+
+### Sample Node-RED gateway flows
+
+Copy the json samples in the [flows](flows) folder to the ```~/.node-red/lib/flows/``` folder on your Node-RED gateway,
+then import them on the Node-RED web interface using the **Import -> Library** menu.
+
+The flow samples are documented with the [ChainOrchestra flow nodes](https://chainorchestra.github.io/ChainOrchestra-SDK/flowNodes.html).
+

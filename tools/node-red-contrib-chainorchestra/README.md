@@ -34,3 +34,5 @@ There are 4 types of blockchain nodes, reflecting the [ChainOrchestra API object
   * The **Chaincode node** deploys chaincode.
   * The **Query node** runs a query.
   * The **Transaction node** executes a transaction.
+
+The nodes are documented with the [ChainOrchestra flow nodes](https://chainorchestra.github.io/ChainOrchestra-SDK/flowNodes.html).
