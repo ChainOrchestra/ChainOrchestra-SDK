@@ -33,3 +33,15 @@ Runs a transaction on the blockchain, verify it is validated by peer consensus.
   * [Transaction](Transaction.html) class API documentation
   * Sample [Transaction](http://chainorchestra.net/ChainOrchestra-SDK/sampleTransaction.html) code live example on the Registration and gate access application.
  
+
+## Hyperledger Fabric Client / REST compatibility
+
+The ChainOrchestra API provides a minimal compatibility layer for using the HFC objects over the Hyperledger REST API.
+
+### Chain
+
+  * [Chain](Chain.html) API wrapper over the HFC Chain class.
+  
+### Member
+
+  * [Member](Member.html) API wrapper over the HFC Member class.
