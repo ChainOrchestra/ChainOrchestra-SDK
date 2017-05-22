@@ -1,12 +1,20 @@
 {
 	"name"			: "node-red-contrib-chainorchestra",
-	"version"		: "0.0.1",
+	"version"		: "0.0.2",
 	"description"	: "Nodes to access a ChainOrchestra blockchain.",
 	"keywords"		: [
 		"blockchain", 
 		"hyperledger",
 		"chainorchestra"
 	],
+	"maintainers": [
+			"Luc Yriarte <luc.yriarte@chainorchestra.com>",
+			"Jeremie Francois <jeremie.francois@chainorchestra.com>",
+			"Zinedine Hasni <zinedine.hasni@chainorchestra.com>"
+	],
+	"dependencies": {
+		"chainorchestra": ">= 0.0.3"
+	},
 	"node-red": {
 		"nodes": {
 			"chaincode"  : "nodes/chainorchestra-chaincode.js",
