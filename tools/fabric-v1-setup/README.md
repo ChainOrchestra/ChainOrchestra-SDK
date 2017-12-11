@@ -45,4 +45,40 @@ scp ../util/orderer-run.sh solo.orderer.example.org:
 ssh solo.orderer.example.org "./orderer-run.sh; rm orderer-run.sh"
 ```
 
-## 
+
+## Peer organizations setup
+
+```
+ORG=org1
+MSP=Org1MSP
+```
+
+```
+PEER=peer0
+```
+
+### Peer archive
+
+The bootstrap peer is ```peer0.${ORG}.example.org:7051```
+
+```
+../util/peer-archive.sh \
+	${ORG}.example.org ${PEER}.${ORG}.example.org crypto-config ../template/core.yaml \
+	${PEER} testnet ${PEER}.${ORG}.example.org peer0.${ORG}.example.org:7051 ${MSP}
+```
+
+### Peer deployment
+
+```
+../util/peer-deploy.sh ${PEER}.${ORG}.example.org \
+	/opt/gopath/src/github.com/hyperledger/fabric/build/bin/peer \
+	config_${PEER}.${ORG}.example.org.tgz
+```
+
+### Run peer on remote host
+
+```
+scp ../util/peer-run.sh ${PEER}.${ORG}.example.org:
+ssh ${PEER}.${ORG}.example.org "./peer-run.sh; rm peer-run.sh"
+```
+
