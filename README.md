@@ -63,6 +63,11 @@ manage consistent, prioritized permissions across different applications.
   * Value [exchange](http://chainorchestra.net/#/5) application live demo on [chainorchestra.net](http://chainorchestra.net)
   * [exchange.go](examples/exchange/chaincode/exchange.go) chaincode example
 
+
+## ChainOrchestra [setup tools](tools/fabric-v1-setup) for fabric v1.0
+
+These scripts and configuration files provide the basics for deploying a Hyperledger fabric v1.0 blockchain with several channels and organizations, and a solo orderer.
+
 ## About ChainOrchestra
 
 [ChainOrchestra](http://chainorchestra.com) conceives and develops demonstrators, 
