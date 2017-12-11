@@ -82,3 +82,44 @@ scp ../util/peer-run.sh ${PEER}.${ORG}.example.org:
 ssh ${PEER}.${ORG}.example.org "./peer-run.sh; rm peer-run.sh"
 ```
 
+## Certificate Authorities management
+
+In addition to the ```$ORG``` and ```$MSP``` variables, we use ```$CA_NAME``` for the Certificate Authority name.
+By default it is relative to the organisation name.
+
+```
+CA_NAME=ca-${ORG}
+```
+
+### Certificate Authority archive
+
+```
+../util/ca-archive.sh \
+	${ORG}.example.org ${CA_NAME} ../template/fabric-ca-server-config.yaml crypto-config
+```
+
+### Certificate Authority deployment
+
+```
+../util/ca-deploy.sh ca.${ORG}.example.org \
+	/opt/gopath/src/github.com/hyperledger/fabric-ca/bin/fabric-ca-server \
+	config_ca.${ORG}.example.org.tgz
+```
+
+### Run Certificate Authority server on remote host
+
+  * **Note**: Set the Certificate Authority administrator name and password before launching the script
+
+```
+set +o history
+ADMIN=myadmin
+PASSWORD=mypassword
+set -o history
+```
+
+```
+scp ../util/ca-run.sh ca.${ORG}.example.org:
+ssh ca.${ORG}.example.org "./ca-run.sh $ADMIN $PASSWORD; rm ca-run.sh"
+```
+
+
