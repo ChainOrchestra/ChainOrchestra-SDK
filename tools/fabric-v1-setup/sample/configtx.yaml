@@ -1,0 +1,106 @@
+
+---
+################################################################################
+#
+#   Profiles
+#
+################################################################################
+Profiles:
+
+    OrdererGenesis:
+        Orderer:
+            <<: *OrdererDefaults
+            Organizations:
+                - *Orderer
+        Consortiums:
+            SampleConsortium:
+                Organizations:
+                    - *Org1
+                    - *Org2
+
+    Org1Channel:
+        Consortium: SampleConsortium
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *Org1
+
+    Org2Channel:
+        Consortium: SampleConsortium
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *Org2
+
+    SharedChannel:
+        Consortium: SampleConsortium
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *Org1
+                - *Org2
+
+################################################################################
+#
+#   Section: Organizations
+#
+################################################################################
+Organizations:
+
+    - &Orderer
+        Name: Orderer
+        ID: OrdererMSP
+        MSPDir: crypto-config/ordererOrganizations/orderer.example.org/msp
+
+    - &Org1
+        Name: Org1
+        ID: Org1MSP
+        MSPDir: crypto-config/peerOrganizations/org1.example.org/msp
+
+        AnchorPeers:
+            - Host: peer0.org1.example.org
+              Port: 7051
+
+    - &Org2
+        Name: Org2
+        ID: Org2MSP
+        MSPDir: crypto-config/peerOrganizations/org2.example.org/msp
+
+        AnchorPeers:
+            - Host: peer0.org2.example.org
+              Port: 7051
+
+################################################################################
+#
+#   SECTION: Orderer
+#
+################################################################################
+Orderer: &OrdererDefaults
+
+    OrdererType: solo
+
+    Addresses:
+        - solo.orderer.example.org:7050
+
+    BatchTimeout: 2s
+    BatchSize:
+        MaxMessageCount: 10
+        AbsoluteMaxBytes: 99 MB
+        PreferredMaxBytes: 512 KB
+
+    MaxChannels: 0
+
+    Kafka:
+        Brokers:
+            - 127.0.0.1:9092
+
+    Organizations:
+
+################################################################################
+#
+#   SECTION: Application
+#
+################################################################################
+Application: &ApplicationDefaults
+
+    Organizations:
