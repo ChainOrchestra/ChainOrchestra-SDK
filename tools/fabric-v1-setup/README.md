@@ -22,3 +22,27 @@ configtxgen -profile Org2Channel -outputCreateChannelTx org2.tx -channelID org2c
 configtxgen -profile SharedChannel -outputCreateChannelTx shared.tx -channelID sharedchan
 ```
 
+## Orderer setup
+
+### Archive for orderer
+
+```
+../util/orderer-archive.sh \
+	orderer.example.org solo.orderer.example.org crypto-config ../template/core.yaml \
+	orderer testnet solo.orderer.example.org 127.0.0.1:7051 OrdererMSP
+```
+
+### Deploy on orderer
+```
+../util/orderer-deploy.sh solo.orderer.example.org \
+	/opt/gopath/src/github.com/hyperledger/fabric/build/bin/orderer \
+	config_solo.orderer.example.org.tgz
+```
+
+### Start orderer
+```
+scp ../util/orderer-run.sh solo.orderer.example.org:
+ssh solo.orderer.example.org "./orderer-run.sh; rm orderer-run.sh"
+```
+
+## 
