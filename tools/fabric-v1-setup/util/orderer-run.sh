@@ -2,5 +2,5 @@
 
 cd /opt/hyperledger/orderer
 export FABRIC_CFG_PATH=$(pwd)/config
-screen -S orderer -dm ./bin/orderer
+screen -S orderer -L -dm ./bin/orderer
 screen -ls
